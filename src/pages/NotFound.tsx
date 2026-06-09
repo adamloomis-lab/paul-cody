@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-[#14110d] px-4">
       <div className="text-center max-w-lg">
-        <img src={images.logo} alt="Paul Cody and The Erie Riders" className="w-24 h-24 mx-auto mb-6" />
+        <img src={images.logo} alt="Paul Cody and The Erie Riders" className="h-20 w-auto mx-auto mb-6" />
         <h1 className="text-6xl md:text-7xl font-bold text-[#b5482a] uppercase tracking-tight font-[family-name:var(--font-display)]">
           404
         </h1>

@@ -13,19 +13,19 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="bg-[#0b0907] border-t border-white/5">
-      <div className="container py-12">
-        <div className="flex flex-col items-center text-center gap-6">
-          <img src={images.logo} alt="Paul Cody and The Erie Riders" className="w-20 h-20" />
+      <div className="container py-14 md:py-16">
+        <div className="flex flex-col items-center text-center gap-8">
+          <img src={images.logo} alt="Paul Cody and The Erie Riders" className="h-20 md:h-24 w-auto" />
 
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
-            <Link href="/" className="text-white/70 hover:text-[#b5482a] text-sm uppercase tracking-wider font-[family-name:var(--font-display)] transition-colors">
+            <Link href="/" className="text-white/70 hover:text-[#b5482a] text-base uppercase tracking-wider font-[family-name:var(--font-display)] transition-colors">
               Home
             </Link>
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-white/70 hover:text-[#b5482a] text-sm uppercase tracking-wider font-[family-name:var(--font-display)] transition-colors"
+                className="text-white/70 hover:text-[#b5482a] text-base uppercase tracking-wider font-[family-name:var(--font-display)] transition-colors"
               >
                 {link.label}
               </Link>
