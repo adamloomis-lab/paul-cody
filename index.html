@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#14110d" />
+
+    <title>Paul Cody and The Erie Riders | Country, Folk & Southern Rock</title>
+    <meta
+      name="description"
+      content="Paul Cody and The Erie Riders blend old-school storytelling, '70s southern rock, and modern country. Hear the new double album New Beginning, watch videos, and book Paul for your next event."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://www.paulcodymusic.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Paul Cody and The Erie Riders" />
+    <meta property="og:title" content="Paul Cody and The Erie Riders" />
+    <meta
+      property="og:description"
+      content="Country, folk, and southern rock from Paul Cody and The Erie Riders. New double album New Beginning out now."
+    />
+    <meta property="og:type" content="music.musician" />
+    <meta property="og:url" content="https://www.paulcodymusic.com/" />
+    <meta property="og:image" content="https://www.paulcodymusic.com/images/album.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Paul Cody and The Erie Riders" />
+    <meta name="twitter:description" content="Country, folk, and southern rock. New album New Beginning out now." />
+    <meta name="twitter:image" content="https://www.paulcodymusic.com/images/album.webp" />
+
+    <link rel="icon" href="/images/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/images/logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured data: musician, band, album, website -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "MusicGroup",
+            "@id": "https://www.paulcodymusic.com/#band",
+            "name": "Paul Cody and The Erie Riders",
+            "genre": ["Country", "Folk", "Southern Rock"],
+            "url": "https://www.paulcodymusic.com/",
+            "image": "https://www.paulcodymusic.com/images/album.webp",
+            "email": "paulcodymusic@gmail.com",
+            "areaServed": "Northeast Ohio",
+            "sameAs": [
+              "https://www.facebook.com/paulcodymusic/",
+              "https://www.instagram.com/paulcodymusic/",
+              "https://www.youtube.com/@paulcodymusic",
+              "https://www.tiktok.com/@paulcodymusic1",
+              "https://paulcodymusic.bandcamp.com"
+            ],
+            "member": {
+              "@type": "Person",
+              "name": "Paul Cody",
+              "description": "Country, folk, and rock singer-songwriter from Northeast Ohio."
+            }
+          },
+          {
+            "@type": "MusicAlbum",
+            "name": "New Beginning",
+            "byArtist": { "@id": "https://www.paulcodymusic.com/#band" },
+            "numTracks": 17,
+            "albumProductionType": "https://schema.org/StudioAlbum",
+            "image": "https://www.paulcodymusic.com/images/album.webp",
+            "url": "https://www.paulcodymusic.com/music"
+          },
+          {
+            "@type": "WebSite",
+            "name": "Paul Cody and The Erie Riders",
+            "url": "https://www.paulcodymusic.com/"
+          }
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <!--
+      Netlify Forms detection. This hidden static form lets Netlify's build bot
+      discover the form at build time (required for SPAs where the real React
+      form only exists at runtime). The React form on /contact POSTs to "/" with
+      a matching form-name. Notification email is set on the Netlify site.
+    -->
+    <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="inquiryType" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <script type="module" src="/src/main.tsx"></script>
+    <!-- Simply Visible analytics --><script src="https://simplyvisible.online/track.js" defer></script>
+  </body>
+</html>

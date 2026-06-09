@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/* =============================================================================
+   Paul Cody and The Erie Riders — design tokens
+   Warm dark theme. Signature accent: whiskey rust #b5482a.
+   Type: Oswald (display — headings/nav/buttons) + Barlow Condensed (body).
+   ========================================================================== */
+
+@theme {
+  --font-display: "Oswald", sans-serif;
+  --font-body: "Barlow Condensed", sans-serif;
+
+  --color-ink: #14110d;
+  --color-ink-deep: #100d0a;
+  --color-footer: #0b0907;
+  --color-card: #1c1813;
+  --color-accent: #b5482a;
+  --color-accent-deep: #8f3620;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #0d0d18;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* Centered, padded, responsive container (Tailwind v4 doesn't ship the v3
+     centered `container` by default — replicate the original's behavior). */
+  .container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+      padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+      padding-inline: 2rem;
+    }
+  }
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1280px;
+    }
+  }
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1536px;
+    }
+  }
+
+  .section-heading {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  @media (min-width: 768px) {
+    .section-heading {
+      font-size: 3.5rem;
+    }
+  }
+}

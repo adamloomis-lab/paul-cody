@@ -1,0 +1,48 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Build outputs
+dist/
+dist-ssr/
+*.local
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Dependencies
+node_modules/
+
+# TypeScript
+*.tsbuildinfo
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Netlify
+.netlify/
+
+# Local editor / harness config
+.claude/
+
+# Internal rebuild blueprint (not part of the shipped site)
+SITE-SPEC.md
+
+# Source asset originals — the optimize-media script reads from here and writes
+# to public/. The large raw originals (esp. the 95-148 MB videos) never get
+# committed; only the compressed output in public/ is tracked.
+assets-raw/
+
+dist-server
+*.tsbuildinfo
