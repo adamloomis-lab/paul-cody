@@ -18,6 +18,7 @@ export default function App() {
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/band" component={Band} />
+        <Route path="/bio" component={Band} />
         <Route path="/live" component={Live} />
         <Route path="/music" component={Music} />
         <Route path="/gallery" component={Gallery} />

@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import FadeInSection from "@/components/FadeInSection";
+import BandRoster from "@/components/BandRoster";
 import { images } from "@/data/images";
 
 export default function Band() {
@@ -9,7 +10,7 @@ export default function Band() {
     <Layout>
       <PageHeader eyebrow="The Band" title="Paul Cody & The Erie Riders" />
 
-      <FadeInSection className="pb-20 md:pb-28">
+      <FadeInSection className="pb-16 md:pb-20">
         <div className="container">
           <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
             <img
@@ -53,6 +54,8 @@ export default function Band() {
           </div>
         </div>
       </FadeInSection>
+
+      <BandRoster />
     </Layout>
   );
 }
