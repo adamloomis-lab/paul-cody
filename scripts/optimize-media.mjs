@@ -27,10 +27,10 @@ const PHOTOS = [
 ];
 
 const VIDEOS = [
+  { src: "video-hero-paulcody.mp4", out: "hero.mp4" }, // cornfield title video — homepage hero bg
   { src: "video-one-man-one-guitar.mp4", out: "one-man-one-guitar.mp4" },
-  { src: "video-promo-19.mp4", out: "promo-1.mp4" },
-  { src: "video-promo-20.mp4", out: "promo-2.mp4" },
-  { src: "video-promo-42.mp4", out: "promo-3.mp4" },
+  { src: "video-promo-15.mp4", out: "clip-15.mp4" },
+  { src: "video-promo-17.mp4", out: "clip-17.mp4" },
 ];
 
 async function processOne(srcName, outName, format, width) {

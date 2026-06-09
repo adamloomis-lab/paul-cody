@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import PageHeader from "@/components/PageHeader";
 import FadeInSection from "@/components/FadeInSection";
-import { videos } from "@/data/images";
+import { images, videos } from "@/data/images";
 import { youtubeIds, youtubeChannel } from "@/data/videos";
 
 export default function Video() {
@@ -19,6 +19,16 @@ export default function Video() {
           <p className="text-center text-white/50 text-sm uppercase tracking-wider font-[family-name:var(--font-display)]">
             Featured: One Man, One Guitar
           </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+            {[videos.clip17, videos.clip15].map((src) => (
+              <div key={src} className="rounded-xl overflow-hidden shadow-xl border border-white/10">
+                <video controls preload="metadata" poster={images.heroPoster} className="w-full aspect-video bg-black">
+                  <source src={src} type="video/mp4" />
+                </video>
+              </div>
+            ))}
+          </div>
         </div>
       </FadeInSection>
 

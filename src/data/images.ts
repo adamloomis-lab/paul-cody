@@ -5,14 +5,16 @@ export const images = {
   logo: "/images/logo.png",
   album: "/images/album.webp",
   heroWanted: "/images/hero-wanted.webp",
+  heroPoster: "/images/hero-poster.webp",
   portrait: "/images/portrait.webp",
 } as const;
 
 export const videos = {
+  // Cornfield-at-sunset title video (animates in "Paul Cody & The Erie Riders") — homepage hero bg.
+  hero: "/videos/hero.mp4",
   oneManOneGuitar: "/videos/one-man-one-guitar.mp4",
-  promo1: "/videos/promo-1.mp4",
-  promo2: "/videos/promo-2.mp4",
-  promo3: "/videos/promo-3.mp4",
+  clip15: "/videos/clip-15.mp4",
+  clip17: "/videos/clip-17.mp4",
 } as const;
 
 // Masonry gallery, in display order. Generic alt text — these are live/promo

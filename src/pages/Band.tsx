@@ -14,9 +14,9 @@ export default function Band() {
         <div className="container">
           <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
             <img
-              src={images.portrait}
+              src={images.heroWanted}
               alt="Paul Cody"
-              className="w-full rounded-lg shadow-2xl border border-white/10"
+              className="w-full rounded-lg shadow-2xl border border-white/10 object-cover"
             />
             <div className="space-y-5">
               <p className="text-white/85 text-lg leading-relaxed">

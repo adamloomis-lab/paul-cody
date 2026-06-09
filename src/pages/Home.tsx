@@ -17,40 +17,48 @@ function Hero() {
   return (
     <section ref={ref} className="relative h-screen min-h-[600px] flex items-center md:items-end justify-center overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0">
-        <img src={images.heroWanted} alt="Paul Cody" className="absolute inset-0 w-full h-[120%] object-cover object-[center_60%]" />
+        {/* Desktop: cornfield-at-sunset title video that brands itself. The 16:9
+            video would crop its baked-in centered title on a portrait phone, so
+            mobile falls back to the WANTED portrait with a text overlay. */}
+        <video
+          className="hidden md:block absolute inset-0 w-full h-[120%] object-cover"
+          src={videos.hero}
+          poster={images.heroPoster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-label="Paul Cody and The Erie Riders"
+        />
+        <img
+          src={images.heroWanted}
+          alt="Paul Cody"
+          className="md:hidden absolute inset-0 w-full h-[120%] object-cover object-[center_60%]"
+        />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-[#14110d]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 md:from-black/25 md:via-transparent to-[#14110d]" />
+      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#14110d] to-transparent" />
 
-      <motion.div style={{ opacity: fgOpacity, y: fgY }} className="relative z-10 text-center px-4 pb-24 md:pb-28">
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-sm md:text-base uppercase tracking-[0.35em] text-[#e8a06a] mb-4 font-[family-name:var(--font-display)]"
-        >
-          {site.tagline}
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-5xl sm:text-6xl md:text-8xl font-bold uppercase text-white tracking-tight font-[family-name:var(--font-display)] drop-shadow-[0_4px_30px_rgba(0,0,0,0.8)]"
-        >
-          Paul Cody
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-xl md:text-2xl text-white/85 mt-2 uppercase tracking-widest font-[family-name:var(--font-display)]"
-        >
-          & The Erie Riders
-        </motion.p>
+      <motion.div style={{ opacity: fgOpacity, y: fgY }} className="relative z-10 text-center px-4 pb-0 md:pb-14">
+        {/* Mobile-only title (desktop gets it from the video). Kept in the DOM
+            for SEO/a11y as the page's h1. */}
+        <div className="md:hidden mb-8">
+          <p className="text-sm uppercase tracking-[0.35em] text-[#e8a06a] mb-4 font-[family-name:var(--font-display)]">
+            {site.tagline}
+          </p>
+          <h1 className="text-5xl sm:text-6xl font-bold uppercase text-white tracking-tight font-[family-name:var(--font-display)] drop-shadow-[0_4px_30px_rgba(0,0,0,0.8)]">
+            Paul Cody
+          </h1>
+          <p className="text-xl text-white/85 mt-2 uppercase tracking-widest font-[family-name:var(--font-display)]">
+            &amp; The Erie Riders
+          </p>
+        </div>
         <motion.div
-          className="mt-8 flex flex-wrap items-center justify-center gap-4"
+          className="flex flex-wrap items-center justify-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
         >
           <Link
             href="/music"
@@ -65,16 +73,6 @@ function Hero() {
             See Live Dates
           </Link>
         </motion.div>
-      </motion.div>
-
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <svg className="w-6 h-6 text-white/60" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
       </motion.div>
     </section>
   );
