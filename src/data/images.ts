@@ -4,9 +4,8 @@
 export const images = {
   logo: "/images/logo.png",
   album: "/images/album.webp",
-  // Homepage hero: Paul + green guitar against the barn planks. Until the
-  // owner's original lands in assets-raw/hero-guitar.jpg this file is a copy
-  // of the WANTED shot — drop the real photo in and run optimize-media.
+  // Homepage hero: Paul + green guitar against the barn planks (P6130019,
+  // recovered from the Duda draft via the editor's same-origin /site render).
   heroGuitar: "/images/hero-guitar.webp",
   heroWanted: "/images/hero-wanted.webp",
   heroPoster: "/images/hero-poster.webp",
