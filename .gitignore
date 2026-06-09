@@ -46,3 +46,6 @@ assets-raw/
 
 dist-server
 *.tsbuildinfo
+
+# Scratch scrape dirs (never commit — source HTML can embed third-party tokens)
+scrape*/
