@@ -22,6 +22,7 @@ const fmtKB = (b) => `${(b / 1024).toFixed(0)} KB`;
 const PHOTOS = [
   { src: "logo.png", out: "logo.png", format: "png", width: 600 },
   { src: "album-new-beginning.jpg", out: "album.webp", format: "webp", width: 1000 },
+  { src: "hero-guitar.jpg", out: "hero-guitar.webp", format: "webp", width: 1920 }, // homepage hero (owner's pick)
   { src: "hero-wanted.jpg", out: "hero-wanted.webp", format: "webp", width: 1920 },
   { src: "paul-cody-portrait.png", out: "portrait.webp", format: "webp", width: 900 },
 ];

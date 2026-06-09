@@ -17,40 +17,26 @@ function Hero() {
   return (
     <section ref={ref} className="relative h-screen min-h-[600px] flex items-center md:items-end justify-center overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0">
-        {/* Desktop: cornfield-at-sunset title video that brands itself. The 16:9
-            video would crop its baked-in centered title on a portrait phone, so
-            mobile falls back to the WANTED portrait with a text overlay. */}
-        <video
-          className="hidden md:block absolute inset-0 w-full h-[120%] object-cover"
-          src={videos.hero}
-          poster={images.heroPoster}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          aria-label="Paul Cody and The Erie Riders"
-        />
+        {/* Hero photo. Owner-requested shot: Paul with the green guitar against
+            the barn planks (assets-raw/hero-guitar.jpg → images.heroGuitar). */}
         <img
-          src={images.heroWanted}
+          src={images.heroGuitar}
           alt="Paul Cody"
-          className="md:hidden absolute inset-0 w-full h-[120%] object-cover object-[center_60%]"
+          className="absolute inset-0 w-full h-[120%] object-cover object-[center_30%]"
         />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 md:from-black/25 md:via-transparent to-[#14110d]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/20 to-[#14110d]" />
       <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#14110d] to-transparent" />
 
       <motion.div style={{ opacity: fgOpacity, y: fgY }} className="relative z-10 text-center px-4 pb-0 md:pb-14">
-        {/* Mobile-only title (desktop gets it from the video). Kept in the DOM
-            for SEO/a11y as the page's h1. */}
-        <div className="md:hidden mb-8">
-          <p className="text-sm uppercase tracking-[0.35em] text-[#e8a06a] mb-4 font-[family-name:var(--font-display)]">
+        <div className="mb-8">
+          <p className="text-sm md:text-base uppercase tracking-[0.35em] text-[#e8a06a] mb-4 font-[family-name:var(--font-display)]">
             {site.tagline}
           </p>
-          <h1 className="text-5xl sm:text-6xl font-bold uppercase text-white tracking-tight font-[family-name:var(--font-display)] drop-shadow-[0_4px_30px_rgba(0,0,0,0.8)]">
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold uppercase text-white tracking-tight font-[family-name:var(--font-display)] drop-shadow-[0_4px_30px_rgba(0,0,0,0.8)]">
             Paul Cody
           </h1>
-          <p className="text-xl text-white/85 mt-2 uppercase tracking-widest font-[family-name:var(--font-display)]">
+          <p className="text-xl md:text-2xl text-white/85 mt-2 uppercase tracking-widest font-[family-name:var(--font-display)]">
             &amp; The Erie Riders
           </p>
         </div>
@@ -191,6 +177,27 @@ function PressStrip() {
   );
 }
 
+function CornfieldOutro() {
+  // The cornfield-at-sunset title video ("Paul Cody & The Erie Riders" animates
+  // in over the field). Sits just above the footer per the owner's request.
+  // Rendered at its native 16:9 so the baked-in title never crops.
+  return (
+    <FadeInSection className="pt-4 pb-0 bg-[#14110d]">
+      <video
+        className="w-full aspect-video object-cover"
+        src={videos.hero}
+        poster={images.heroPoster}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label="Paul Cody and The Erie Riders title video over a cornfield at sunset"
+      />
+    </FadeInSection>
+  );
+}
+
 export default function Home() {
   return (
     <Layout bare>
@@ -199,6 +206,7 @@ export default function Home() {
       <AboutTeaser />
       <FeaturedVideo />
       <PressStrip />
+      <CornfieldOutro />
     </Layout>
   );
 }
