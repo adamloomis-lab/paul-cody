@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import PageHeader from "@/components/PageHeader";
 import { site } from "@/data/site";
 import { FacebookIcon, InstagramIcon, YouTubeIcon, TikTokIcon } from "@/components/icons";
@@ -66,6 +67,11 @@ export default function Contact() {
 
   return (
     <Layout>
+      <Seo
+        title="Contact & Booking | Paul Cody and The Erie Riders"
+        description="Book Paul Cody and The Erie Riders for your venue, festival, or private event, or send the band a message."
+        path="/contact"
+      />
       <PageHeader
         eyebrow="Get in Touch"
         title="Contact & Booking"

@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import PageHeader from "@/components/PageHeader";
 import FadeInSection from "@/components/FadeInSection";
 import { images } from "@/data/images";
@@ -14,6 +15,11 @@ export default function Music() {
   const { album, email } = site;
   return (
     <Layout>
+      <Seo
+        title="New Beginning Album | Paul Cody and The Erie Riders"
+        description="New Beginning, the 17-song double album from Paul Cody and The Erie Riders. Stream or buy on Bandcamp, Amazon, and iTunes, or order a signed CD. Half of all profits go to veterans charities."
+        path="/music"
+      />
       <PageHeader eyebrow="Out Now" title="New Beginning" subtitle={`A ${album.descriptor} from Paul Cody and The Erie Riders.`} />
 
       <FadeInSection className="pb-20 md:pb-28">

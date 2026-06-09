@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Link } from "wouter";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import FadeInSection from "@/components/FadeInSection";
 import { images, videos } from "@/data/images";
 import { site } from "@/data/site";
@@ -201,6 +202,11 @@ function CornfieldOutro() {
 export default function Home() {
   return (
     <Layout bare>
+      <Seo
+        title="Paul Cody and The Erie Riders | Country, Folk & Southern Rock"
+        description="Paul Cody and The Erie Riders blend old-school storytelling, '70s southern rock, and modern country. Hear the new double album New Beginning, watch videos, and book Paul for your next event."
+        path="/"
+      />
       <Hero />
       <AlbumFeature />
       <AboutTeaser />

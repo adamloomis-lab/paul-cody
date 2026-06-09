@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import PageHeader from "@/components/PageHeader";
 import FadeInSection from "@/components/FadeInSection";
 import { images, videos } from "@/data/images";
@@ -7,6 +8,11 @@ import { youtubeIds, youtubeChannel } from "@/data/videos";
 export default function Video() {
   return (
     <Layout>
+      <Seo
+        title="Videos | Paul Cody and The Erie Riders"
+        description="Music videos and live performances from Paul Cody and The Erie Riders, including the One Man One Guitar single and clips from the New Beginning album."
+        path="/video"
+      />
       <PageHeader eyebrow="Video" title="Watch" subtitle="Music videos, live performances, and more from Paul Cody." />
 
       <FadeInSection className="pb-12">

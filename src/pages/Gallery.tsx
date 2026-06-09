@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import PageHeader from "@/components/PageHeader";
 import { gallery } from "@/data/images";
 
@@ -9,6 +10,11 @@ export default function Gallery() {
 
   return (
     <Layout>
+      <Seo
+        title="Photo Gallery | Paul Cody and The Erie Riders"
+        description="Live performance photos of Paul Cody and The Erie Riders on stage across Northeast Ohio."
+        path="/gallery"
+      />
       <PageHeader eyebrow="Gallery" title="On the Road" subtitle="Live shots of Paul Cody and The Erie Riders." />
 
       <section className="pb-20 md:pb-28">

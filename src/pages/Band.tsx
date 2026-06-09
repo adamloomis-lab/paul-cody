@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import PageHeader from "@/components/PageHeader";
 import FadeInSection from "@/components/FadeInSection";
 import BandRoster from "@/components/BandRoster";
@@ -8,6 +9,11 @@ import { images } from "@/data/images";
 export default function Band() {
   return (
     <Layout>
+      <Seo
+        title="The Band | Paul Cody and The Erie Riders"
+        description="Meet Paul Cody and The Erie Riders — the Northeast Ohio players behind the New Beginning album, from bass and drums to violin, harmonica, and vocals."
+        path="/band"
+      />
       <PageHeader eyebrow="The Band" title="Paul Cody & The Erie Riders" />
 
       <FadeInSection className="pb-16 md:pb-20">

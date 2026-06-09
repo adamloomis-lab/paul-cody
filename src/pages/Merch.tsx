@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import PageHeader from "@/components/PageHeader";
 import { site } from "@/data/site";
 import { FacebookIcon, InstagramIcon } from "@/components/icons";
@@ -7,6 +8,11 @@ import { FacebookIcon, InstagramIcon } from "@/components/icons";
 export default function Merch() {
   return (
     <Layout>
+      <Seo
+        title="Merch | Paul Cody and The Erie Riders"
+        description="Paul Cody and The Erie Riders merchandise is coming soon. Grab the New Beginning album and follow along on social in the meantime."
+        path="/merch"
+      />
       <PageHeader eyebrow="Merch" title="Coming Soon" />
 
       <section className="pb-24 md:pb-32">

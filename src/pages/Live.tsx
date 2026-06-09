@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
+import Seo from "@/components/Seo";
 import PageHeader from "@/components/PageHeader";
 import { upcomingShows, type Show } from "@/data/shows";
 
@@ -47,6 +48,11 @@ function ShowRow({ show, index }: { show: Show; index: number }) {
 export default function Live() {
   return (
     <Layout>
+      <Seo
+        title="Live Shows | Paul Cody and The Erie Riders"
+        description="Upcoming live shows from Paul Cody and The Erie Riders across Northeast Ohio, plus booking information for festivals, clubs, fairs, and private events."
+        path="/live"
+      />
       <PageHeader eyebrow="On Stage" title="Live Shows" subtitle="Catch Paul Cody and The Erie Riders live across Northeast Ohio." />
 
       <section className="pb-20 md:pb-28">
