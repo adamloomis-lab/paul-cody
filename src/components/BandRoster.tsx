@@ -4,6 +4,14 @@ import { players, production, type Member } from "@/data/members";
 function MemberCard({ m }: { m: Member }) {
   return (
     <div className="flex flex-col h-full p-6 rounded-xl bg-[#1c1813] border border-white/10 hover:border-[#b5482a]/40 transition-colors">
+      {m.photo && (
+        <img
+          src={m.photo}
+          alt={m.name}
+          loading="lazy"
+          className="w-full aspect-[4/3] object-cover object-top rounded-lg mb-4 border border-white/10"
+        />
+      )}
       <h3 className="text-xl font-bold text-white uppercase tracking-wide font-[family-name:var(--font-display)]">
         {m.name}
       </h3>

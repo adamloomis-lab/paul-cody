@@ -61,6 +61,16 @@ async function optimizePhotos() {
     const out = f.replace(/\.jpe?g$/i, ".webp");
     await processOne(f, out, "webp", 1600);
   }
+
+  console.log("\nBand member photos →", IMG_OUT);
+  const members = (await readdir(SRC)).filter((f) => /^member-.*\.png$/i.test(f)).sort();
+  for (const f of members) {
+    const out = f.replace(/\.png$/i, ".webp");
+    await processOne(f, out, "webp", 800);
+  }
+
+  // "WANTED — You at My Shows — LIVE!" poster (bottom of the Live page)
+  await processOne("press-screenshot.png", "wanted-live-poster.webp", "webp", 1200);
 }
 
 function optimizeVideos() {
