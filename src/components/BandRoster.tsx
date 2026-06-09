@@ -1,5 +1,5 @@
 import FadeInSection from "@/components/FadeInSection";
-import { players, production, type Member } from "@/data/members";
+import { players, type Member } from "@/data/members";
 
 function MemberCard({ m }: { m: Member }) {
   return (
@@ -59,17 +59,6 @@ export default function BandRoster() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto">
           {players.map((m) => (
-            <MemberCard key={m.name} m={m} />
-          ))}
-        </div>
-
-        <div className="text-center mt-16 mb-10">
-          <h3 className="text-3xl md:text-4xl font-bold uppercase text-white tracking-tight font-[family-name:var(--font-display)]">
-            Production
-          </h3>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
-          {production.map((m) => (
             <MemberCard key={m.name} m={m} />
           ))}
         </div>
