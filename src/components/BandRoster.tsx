@@ -1,4 +1,3 @@
-import FadeInSection from "@/components/FadeInSection";
 import { players, type Member } from "@/data/members";
 
 function MemberCard({ m }: { m: Member }) {
@@ -42,8 +41,11 @@ function MemberCard({ m }: { m: Member }) {
 }
 
 export default function BandRoster() {
+  // Plain section, NOT FadeInSection: the 12-card roster is taller than the
+  // viewport on mobile, so a whileInView fade on the whole section never
+  // triggers and the band appeared invisible.
   return (
-    <FadeInSection className="py-16 md:py-24 bg-[#100d0a] border-t border-white/5">
+    <section className="py-16 md:py-24 bg-[#100d0a] border-t border-white/5">
       <div className="container">
         <div className="text-center mb-12">
           <p className="text-sm uppercase tracking-[0.3em] text-[#b5482a] mb-3 font-[family-name:var(--font-display)]">
@@ -63,6 +65,6 @@ export default function BandRoster() {
           ))}
         </div>
       </div>
-    </FadeInSection>
+    </section>
   );
 }

@@ -9,7 +9,7 @@ export default function Layout({ children, bare = false }: { children: ReactNode
   return (
     <div className="min-h-screen flex flex-col bg-[#14110d]">
       <Header />
-      <main className={`flex-1 ${bare ? "" : "pt-20 md:pt-24"}`}>{children}</main>
+      <main className={`flex-1 ${bare ? "" : "pt-24 md:pt-32"}`}>{children}</main>
       <Footer />
       <CookieNotice />
     </div>

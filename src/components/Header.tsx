@@ -6,7 +6,7 @@ import { site, NAV_LINKS } from "@/data/site";
 import { FacebookIcon, InstagramIcon, YouTubeIcon, TikTokIcon } from "@/components/icons";
 
 const navLinkBase =
-  "font-[family-name:var(--font-display)] text-sm uppercase tracking-wider transition-colors duration-200";
+  "font-[family-name:var(--font-display)] text-xl uppercase tracking-wider font-semibold transition-colors duration-200";
 
 const socials = [
   { url: site.social.facebook, label: "Facebook", Icon: FacebookIcon },
@@ -36,12 +36,12 @@ export default function Header() {
         solid ? "bg-[#100d0a]/95 backdrop-blur-md shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="container flex items-center justify-between py-3 md:py-4">
+      <div className="container flex items-center justify-between py-2 md:py-3">
         <Link href="/" aria-label="Paul Cody — home" className="flex items-center">
-          <img src={images.logo} alt="Paul Cody and The Erie Riders" className="h-12 md:h-16 w-auto" />
+          <img src={images.logo} alt="Paul Cody and The Erie Riders" className="h-20 md:h-28 w-auto" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden lg:flex items-center gap-9">
           {NAV_LINKS.map((link) => {
             const active = location === link.href;
             return (
@@ -66,7 +66,7 @@ export default function Header() {
               aria-label={label}
               className="text-white/80 hover:text-[#b5482a] transition-colors duration-200"
             >
-              <Icon className="w-5 h-5" />
+              <Icon className="w-6 h-6" />
             </a>
           ))}
         </div>
@@ -78,7 +78,7 @@ export default function Header() {
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((v) => !v)}
         >
-          <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+          <svg className="w-9 h-9" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
           </svg>
         </button>
@@ -93,7 +93,7 @@ export default function Header() {
           <div className="container py-6 flex flex-col gap-5">
             <Link
               href="/"
-              className={`${navLinkBase} text-lg ${location === "/" ? "text-[#b5482a]" : "text-white/90"}`}
+              className={`${navLinkBase} text-2xl ${location === "/" ? "text-[#b5482a]" : "text-white/90"}`}
               onClick={() => setMenuOpen(false)}
             >
               Home
@@ -102,7 +102,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`${navLinkBase} text-lg ${location === link.href ? "text-[#b5482a]" : "text-white/90"}`}
+                className={`${navLinkBase} text-2xl ${location === link.href ? "text-[#b5482a]" : "text-white/90"}`}
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
