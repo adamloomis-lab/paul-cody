@@ -53,15 +53,15 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-white/5 flex flex-col items-center gap-2 text-center">
-          <p className="text-white/40 text-sm font-[family-name:var(--font-display)] uppercase tracking-wider">
+          <p className="text-white/60 text-sm font-[family-name:var(--font-display)] uppercase tracking-wider">
             © 2026 Paul Cody. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-white/30">
-            <Link href="/privacy" className="hover:text-white/60 transition-colors">Privacy</Link>
-            <Link href="/terms" className="hover:text-white/60 transition-colors">Terms</Link>
-            <Link href="/accessibility" className="hover:text-white/60 transition-colors">Accessibility</Link>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-white/60">
+            <Link href="/privacy" className="hover:text-white/80 transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-white/80 transition-colors">Terms</Link>
+            <Link href="/accessibility" className="hover:text-white/80 transition-colors">Accessibility</Link>
           </div>
-          <p className="text-white/30 text-xs mt-1">
+          <p className="text-white/60 text-xs mt-1">
             Website by{" "}
             <a
               href="https://adamloomismarketing.com"

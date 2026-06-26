@@ -16,7 +16,7 @@ const INQUIRY_TYPES = [
 ];
 
 const inputClass =
-  "w-full px-4 py-3 bg-[#100d0a] border border-white/15 rounded text-white placeholder-white/40 focus:border-[#b5482a] focus:outline-none transition-colors";
+  "w-full px-4 py-3 bg-[#100d0a] border border-white/15 rounded text-white placeholder-white/70 focus:border-[#b5482a] focus-visible:outline-none transition-colors";
 const labelClass = "block text-white/80 text-sm font-semibold mb-2";
 
 const socials = [

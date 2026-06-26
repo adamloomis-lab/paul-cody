@@ -8,8 +8,9 @@ import CookieNotice from "@/components/CookieNotice";
 export default function Layout({ children, bare = false }: { children: ReactNode; bare?: boolean }) {
   return (
     <div className="min-h-screen flex flex-col bg-[#14110d]">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:shadow-lg focus:text-gray-900">Skip to content</a>
       <Header />
-      <main className={`flex-1 ${bare ? "" : "pt-24 md:pt-32"}`}>{children}</main>
+      <main id="main-content" className={`flex-1 ${bare ? "" : "pt-24 md:pt-32"}`}>{children}</main>
       <Footer />
       <CookieNotice />
     </div>

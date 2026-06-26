@@ -26,7 +26,7 @@ function MemberCard({ m }: { m: Member }) {
               href={l.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-sm text-[#b5482a] hover:text-[#e8a06a] transition-colors font-semibold"
+              className="inline-flex items-center gap-1 text-sm text-[#e8a06a] hover:text-white transition-colors font-semibold"
             >
               {l.label}
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">

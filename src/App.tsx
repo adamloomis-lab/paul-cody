@@ -1,4 +1,5 @@
 import { Route, Switch } from "wouter";
+import { MotionConfig } from "framer-motion";
 import ScrollToTop from "@/components/ScrollToTop";
 import Home from "@/pages/Home";
 import Band from "@/pages/Band";
@@ -13,7 +14,7 @@ import NotFound from "@/pages/NotFound";
 
 export default function App() {
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <ScrollToTop />
       <Switch>
         <Route path="/" component={Home} />
@@ -30,6 +31,6 @@ export default function App() {
         <Route path="/accessibility" component={Accessibility} />
         <Route component={NotFound} />
       </Switch>
-    </>
+    </MotionConfig>
   );
 }
