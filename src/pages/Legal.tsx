@@ -83,23 +83,38 @@ export function Terms() {
 
 export function Accessibility() {
   return (
-    <LegalShell title="Accessibility">
+    <LegalShell title="Accessibility Statement">
+      <h2>Our commitment</h2>
       <p>
-        {site.fullName} is committed to making this website accessible to everyone, including people with disabilities.
+        This site is built to WCAG 2.1 AA, the standard referenced by the ADA for web accessibility. We review and
+        update our accessibility practices on an ongoing basis.
       </p>
-      <h2>Our Approach</h2>
+      <h2>What we have done</h2>
+      <p>We have taken the following steps to make this site accessible:</p>
+      <ul>
+        <li>
+          Skip links allow keyboard and screen reader users to bypass navigation and get straight to the main content
+          without tabbing through every menu item.
+        </li>
+        <li>
+          A visible outline appears on every interactive element when navigated by keyboard, so you always know where
+          focus is on the page.
+        </li>
+        <li>
+          Text colors meet the 4.5:1 minimum contrast ratio for readability by people with low vision.
+        </li>
+        <li>
+          All form fields, buttons, and interactive elements have descriptive labels so screen readers can convey their
+          purpose accurately.
+        </li>
+        <li>
+          Animations automatically reduce for users who have the Reduce Motion preference enabled on their device.
+        </li>
+      </ul>
+      <h2>Report an issue</h2>
       <p>
-        We aim to follow the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA. This includes meaningful image
-        alt text, keyboard-navigable menus and controls, readable color contrast, and clear, descriptive links.
-      </p>
-      <h2>Ongoing Effort</h2>
-      <p>
-        Accessibility is an ongoing effort and we continue to improve. If you encounter any barrier or have a
-        suggestion, we want to hear about it.
-      </p>
-      <h2>Contact</h2>
-      <p>
-        Email <a href={`mailto:${site.email}`}>{site.email}</a> and we'll do our best to help.
+        If you encounter any accessibility barrier on this site, please reach out and we will address it promptly.
+        Email us at <a href={`mailto:${site.email}`}>{site.email}</a>.
       </p>
     </LegalShell>
   );
