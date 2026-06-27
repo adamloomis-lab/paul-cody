@@ -6,7 +6,7 @@ export type PressItem = { outlet: string; title: string; url: string };
 export const press: PressItem[] = [
   {
     outlet: "iHeartRadio",
-    title: "Interview with Paul Cody — The Culture News",
+    title: "Interview with Paul Cody, The Culture News",
     url: "https://www.iheart.com/podcast/966-the-culture-news-28269772/episode/interview-with-paul-cody-the-315222076/",
   },
   {

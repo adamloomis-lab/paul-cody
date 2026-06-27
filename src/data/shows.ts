@@ -16,7 +16,7 @@ export type Show = {
 export const upcomingShows: Show[] = [
   {
     date: "Sat, June 27",
-    time: "6:00 – 9:00 PM",
+    time: "6:00 - 9:00 PM",
     venue: "Red Wagon Farm",
     city: "Columbia Station, OH",
     address: "14554 W River Rd, Columbia Station, OH 44028",

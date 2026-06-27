@@ -11,7 +11,7 @@ export default function Band() {
     <Layout>
       <Seo
         title="The Band | Paul Cody and The Erie Riders"
-        description="Meet Paul Cody and The Erie Riders — the Northeast Ohio players behind the New Beginning album, from bass and drums to violin, harmonica, and vocals."
+        description="Meet Paul Cody and The Erie Riders, the Northeast Ohio players behind the New Beginning album, from bass and drums to violin, harmonica, and vocals."
         path="/band"
       />
       <PageHeader eyebrow="The Band" title="Paul Cody & The Erie Riders" />

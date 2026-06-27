@@ -8,7 +8,7 @@ import { FacebookIcon, InstagramIcon, YouTubeIcon, TikTokIcon } from "@/componen
 
 const INQUIRY_TYPES = [
   { value: "", label: "What's this about?" },
-  { value: "booking", label: "Booking — venue / event" },
+  { value: "booking", label: "Booking: venue / event" },
   { value: "festival", label: "Festival / Fair" },
   { value: "private-party", label: "Private Party" },
   { value: "press", label: "Press / Media" },
@@ -136,7 +136,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <label htmlFor="message" className={labelClass}>Message</label>
-                  <textarea id="message" name="message" rows={5} required placeholder="Tell us about your event — date, venue, expected attendance — or just say hi." value={form.message} onChange={update("message")} className={`${inputClass} resize-none`} />
+                  <textarea id="message" name="message" rows={5} required placeholder="Tell us about your event (date, venue, expected attendance) or just say hi." value={form.message} onChange={update("message")} className={`${inputClass} resize-none`} />
                 </div>
                 {error && (
                   <p className="text-[#e8a06a] text-sm text-center">

@@ -37,7 +37,7 @@ export default function Header() {
       }`}
     >
       <div className="container flex items-center justify-between py-2 md:py-3">
-        <Link href="/" aria-label="Paul Cody and The Erie Riders — home" className="flex items-center">
+        <Link href="/" aria-label="Paul Cody and The Erie Riders, home" className="flex items-center">
           <img src={images.logo} alt="Paul Cody and The Erie Riders" className="h-20 md:h-28 w-auto" />
         </Link>
 

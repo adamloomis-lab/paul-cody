@@ -40,7 +40,7 @@ export const players: Member[] = [
     name: "Sherena Wynn",
     photo: "/images/member-sherena-wynn.webp",
     role: "Vocals",
-    bio: "Sherena has performed with acclaimed celebrity artists like the late Gerald Levert, Patti LaBelle, and Angie Stone, at major venues throughout the world including the Apollo Theater in New York City, Constitution Hall in DC, and Universal Studios Amphitheater in Hollywood. She has appeared on the David Letterman Show, the Tonight Show with Jay Leno, the Arsenio Hall Show, and the Lou Rawls Parade of Stars. An accomplished arranger, writer, vocal coach, and producer as well as a vocalist, Sherena has collaborated on songs originated for Whitney Houston, The O'Jays, Deborah Cox, Tyrese, Joe, Next, D'Angelo, Angie Stone, and many others. Her music is a reflection of her — a mixture of inspirational, jazz, and hip-hop. She added her silky-smooth voice to “A Song for Jesus (He Lifts Me Up).”",
+    bio: "Sherena has performed with acclaimed celebrity artists like the late Gerald Levert, Patti LaBelle, and Angie Stone, at major venues throughout the world including the Apollo Theater in New York City, Constitution Hall in DC, and Universal Studios Amphitheater in Hollywood. She has appeared on the David Letterman Show, the Tonight Show with Jay Leno, the Arsenio Hall Show, and the Lou Rawls Parade of Stars. An accomplished arranger, writer, vocal coach, and producer as well as a vocalist, Sherena has collaborated on songs originated for Whitney Houston, The O'Jays, Deborah Cox, Tyrese, Joe, Next, D'Angelo, Angie Stone, and many others. Her music is a reflection of her, a mixture of inspirational, jazz, and hip-hop. She added her silky-smooth voice to “A Song for Jesus (He Lifts Me Up).”",
     links: [
       { label: "Bio", url: "https://nfrontmusic.com/bios/sherena-wynn" },
       { label: "Facebook", url: "https://www.facebook.com/Songbird0214" },
@@ -58,13 +58,13 @@ export const players: Member[] = [
     name: "Cheryl",
     photo: "/images/member-cheryl.webp",
     role: "Vocals",
-    bio: "Cheryl graduated from the Berklee College of Music and spent seven years as a singer-songwriter in Nashville. She sings and creates her songs on guitar and piano, and added her beautiful voice — both alto and soprano parts — to the song “I Believe.”",
+    bio: "Cheryl graduated from the Berklee College of Music and spent seven years as a singer-songwriter in Nashville. She sings and creates her songs on guitar and piano, and added her beautiful voice, both alto and soprano parts, to the song “I Believe.”",
   },
   {
     name: "Josee McGee",
     photo: "/images/member-josee-mcgee.webp",
     role: "Vocals",
-    bio: "Josee McGee is a singer-songwriter and performer in the Northeast Ohio region who recently released the album Weeper, available on all streaming sites. She was raised in a musical family — everyone sang, and her step-grandpa was a musical director, composer, and band leader. Most nights of the week you can hear her singing her own material as well as artists like Fleetwood Mac, Carole King, Alicia Keys, and The Beatles. Her original music is a unique blend of soul, jazz, and pop. She sang on the duet “Already Are” as well as all of its alto and soprano harmonies.",
+    bio: "Josee McGee is a singer-songwriter and performer in the Northeast Ohio region who recently released the album Weeper, available on all streaming sites. She was raised in a musical family. Everyone sang, and her step-grandpa was a musical director, composer, and band leader. Most nights of the week you can hear her singing her own material as well as artists like Fleetwood Mac, Carole King, Alicia Keys, and The Beatles. Her original music is a unique blend of soul, jazz, and pop. She sang on the duet “Already Are” as well as all of its alto and soprano harmonies.",
     links: [{ label: "joseemcgee.com", url: "https://www.joseemcgee.com" }],
   },
   {
@@ -105,6 +105,6 @@ export const players: Member[] = [
     name: "Chris Keffer",
     photo: "/images/member-chris-keffer.webp",
     role: "Producer / Engineer",
-    bio: "Chris is the owner and Wizard of Magnetic North Studio in Beachwood, Ohio, celebrating his 40th year in business serving the Northeast Ohio media market. He wears many hats — audio engineer, music producer, mastering engineer, video producer — with over 900 album credits to date covering every genre of music, plus live albums, concerts, and TV/movie music filming. He has worked with internationally known artists and record labels as well as independent and self-financed artists, and his devotion to each artist is the same. He is also a father of two super cool sons and a self-proclaimed nerd. This album would not have been possible without his artistry as well as the players he brought that made this release so special.",
+    bio: "Chris is the owner and Wizard of Magnetic North Studio in Beachwood, Ohio, celebrating his 40th year in business serving the Northeast Ohio media market. He wears many hats (audio engineer, music producer, mastering engineer, video producer) with over 900 album credits to date covering every genre of music, plus live albums, concerts, and TV/movie music filming. He has worked with internationally known artists and record labels as well as independent and self-financed artists, and his devotion to each artist is the same. He is also a father of two super cool sons and a self-proclaimed nerd. This album would not have been possible without his artistry as well as the players he brought that made this release so special.",
   },
 ];

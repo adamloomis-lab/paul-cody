@@ -89,7 +89,7 @@ export default function Live() {
           <div className="mt-14 max-w-xl mx-auto">
             <img
               src="/images/wanted-live-poster.webp"
-              alt="WANTED: you at my shows — Paul Cody LIVE"
+              alt="WANTED: you at my shows. Paul Cody LIVE"
               loading="lazy"
               className="w-full rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/10"
             />

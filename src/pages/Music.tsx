@@ -7,7 +7,7 @@ import { site } from "@/data/site";
 
 const tracks = [
   { name: "New Beginning", note: "Title track" },
-  { name: "Raise a Glass", note: "Featured single — live version included" },
+  { name: "Raise a Glass", note: "Featured single, live version included" },
   { name: "Thank You Mom", note: "Closing track" },
 ];
 
@@ -71,7 +71,7 @@ export default function Music() {
                     className="flex items-center justify-between px-5 py-4 bg-[#1c1813] border border-white/10 rounded-lg hover:border-[#b5482a]/50 transition-all group"
                   >
                     <span className="text-white font-semibold">
-                      Bandcamp <span className="text-white/50 text-sm">— album, lyrics & artwork, or single songs</span>
+                      Bandcamp <span className="text-white/50 text-sm">(album, lyrics & artwork, or single songs)</span>
                     </span>
                     <span className="text-[#b5482a] group-hover:translate-x-1 transition-transform">→</span>
                   </a>
@@ -82,22 +82,22 @@ export default function Music() {
                     className="flex items-center justify-between px-5 py-4 bg-[#1c1813] border border-white/10 rounded-lg hover:border-[#b5482a]/50 transition-all group"
                   >
                     <span className="text-white font-semibold">
-                      Amazon Music <span className="text-white/50 text-sm">— stream & buy</span>
+                      Amazon Music <span className="text-white/50 text-sm">(stream & buy)</span>
                     </span>
                     <span className="text-[#b5482a] group-hover:translate-x-1 transition-transform">→</span>
                   </a>
                   <div className="px-5 py-4 bg-[#1c1813] border border-white/10 rounded-lg">
                     <span className="text-white font-semibold">
-                      iTunes / Apple Music <span className="text-white/50 text-sm">— {album.itunesSearch}</span>
+                      iTunes / Apple Music <span className="text-white/50 text-sm">({album.itunesSearch})</span>
                     </span>
                   </div>
                   <a
-                    href={`mailto:${email}?subject=Signed CD — New Beginning`}
+                    href={`mailto:${email}?subject=Signed CD: New Beginning`}
                     className="flex items-center justify-between px-5 py-4 bg-[#b5482a]/10 border border-[#b5482a]/30 rounded-lg hover:bg-[#b5482a]/20 transition-all group"
                   >
                     <span className="text-white font-semibold">
-                      Signed physical CD — {album.signedCdPrice}{" "}
-                      <span className="text-white/50 text-sm">— email to order</span>
+                      Signed physical CD, {album.signedCdPrice}{" "}
+                      <span className="text-white/50 text-sm">(email to order)</span>
                     </span>
                     <span className="text-[#b5482a] group-hover:translate-x-1 transition-transform">→</span>
                   </a>
@@ -115,7 +115,7 @@ export default function Music() {
                       <span className="text-[#b5482a]">♪</span>
                       <span>
                         <span className="font-semibold text-white">{t.name}</span>
-                        <span className="text-white/50 text-sm"> — {t.note}</span>
+                        <span className="text-white/50 text-sm"> ({t.note})</span>
                       </span>
                     </li>
                   ))}
