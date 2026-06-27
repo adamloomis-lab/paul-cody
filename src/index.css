@@ -16,7 +16,46 @@
   --color-card: #1c1813;
   --color-accent: #b5482a;
   --color-accent-deep: #8f3620;
+
+  --animate-glow-pulse: glow-pulse 2.4s ease-in-out infinite;
 }
+
+/* =============================================================================
+   Floating-CTA + fluid-form motion. Sheen sweep, accent glow pulse, drawn
+   checkmark, success rise/pop. All disabled under prefers-reduced-motion via
+   the global reduce block below.
+   ========================================================================== */
+@keyframes sheen {
+  0% { transform: translateX(-120%) skewX(-12deg); }
+  100% { transform: translateX(420%) skewX(-12deg); }
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 10px 30px -10px rgba(181, 72, 42, 0.55); }
+  50% { box-shadow: 0 14px 42px -8px rgba(181, 72, 42, 0.9); }
+}
+@keyframes draw-check {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pop {
+  0% { opacity: 0; transform: scale(0.6); }
+  60% { transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.sheen { position: relative; overflow: hidden; }
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: translateX(-150%) skewX(-12deg);
+  pointer-events: none;
+}
+.sheen:hover::after { animation: sheen 0.9s ease; }
 
 @layer base {
   html {

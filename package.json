@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "framer-motion": "^12.23.22",
+    "lucide-react": "^1.21.0",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "wouter": "^3.3.5"

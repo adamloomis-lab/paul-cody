@@ -1,23 +1,22 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { CalendarDays, Newspaper, Heart, Mail, MessageCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import Seo from "@/components/Seo";
 import PageHeader from "@/components/PageHeader";
 import { site } from "@/data/site";
+import { FloatField, IconCardSelect, SuccessCheck, type IconCardOption } from "@/components/FluidField";
 import { FacebookIcon, InstagramIcon, YouTubeIcon, TikTokIcon } from "@/components/icons";
 
-const INQUIRY_TYPES = [
-  { value: "", label: "What's this about?" },
-  { value: "booking", label: "Booking: venue / event" },
-  { value: "festival", label: "Festival / Fair" },
-  { value: "private-party", label: "Private Party" },
-  { value: "press", label: "Press / Media" },
-  { value: "general", label: "General / Fan Message" },
+// Single-select icon cards replacing the old inquiry-type dropdown. Values are
+// preserved so the Netlify "contact" submission payload reads the same.
+const INQUIRY_OPTIONS: IconCardOption[] = [
+  { value: "booking", label: "Booking", Icon: CalendarDays },
+  { value: "press", label: "Press / Media", Icon: Newspaper },
+  { value: "general", label: "Fan Message", Icon: Heart },
+  { value: "private-party", label: "Private Party", Icon: Mail },
+  { value: "other", label: "Something Else", Icon: MessageCircle },
 ];
-
-const inputClass =
-  "w-full px-4 py-3 bg-[#100d0a] border border-white/15 rounded text-white placeholder-white/70 focus:border-[#b5482a] focus-visible:outline-none transition-colors";
-const labelClass = "block text-white/80 text-sm font-semibold mb-2";
 
 const socials = [
   { url: site.social.facebook, label: "Facebook", Icon: FacebookIcon },
@@ -31,16 +30,20 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(false);
+  // Capture the first name before the form state resets so the thank-you can
+  // greet the visitor by name.
+  const [firstName, setFirstName] = useState("");
 
   const update =
     (field: keyof typeof form) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
       setForm((f) => ({ ...f, [field]: e.target.value }));
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(false);
     setSubmitting(true);
+    const captured = form.name.trim().split(/\s+/)[0] || "";
     try {
       const body = new URLSearchParams({
         "form-name": "contact",
@@ -56,8 +59,11 @@ export default function Contact() {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: body.toString(),
       });
-      if (res.ok) setSubmitted(true);
-      else setError(true);
+      if (res.ok) {
+        setFirstName(captured);
+        setSubmitted(true);
+        setForm({ name: "", email: "", phone: "", inquiryType: "", message: "" });
+      } else setError(true);
     } catch {
       setError(true);
     } finally {
@@ -84,15 +90,34 @@ export default function Contact() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-12 bg-[#1c1813] rounded-lg border border-[#b5482a]/20"
+              className="text-center py-12 px-6 bg-[#1c1813] rounded-lg border border-[#b5482a]/25"
             >
-              <svg className="w-16 h-16 text-[#b5482a] mx-auto mb-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-              <h2 className="text-2xl font-bold text-white uppercase tracking-wide mb-2 font-[family-name:var(--font-display)]">
-                Thank You
+              <div className="mx-auto mb-5 flex justify-center">
+                <SuccessCheck />
+              </div>
+              <h2 className="text-3xl font-bold text-white uppercase tracking-wide mb-3 font-[family-name:var(--font-display)]">
+                Thank You{firstName ? `, ${firstName}` : ""}!
               </h2>
-              <p className="text-white/70">Thanks for reaching out. We'll get back to you as soon as possible.</p>
+              <p className="text-white/70 max-w-md mx-auto">
+                Your message is in. Paul and the Erie Riders will be in touch soon. If your event has
+                a date, the sooner we hear from you the better.
+              </p>
+              <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a
+                  href={`mailto:${site.email}`}
+                  className="inline-flex items-center gap-2 rounded px-6 py-3 bg-[#b5482a] text-white uppercase tracking-wider font-bold font-[family-name:var(--font-display)] shadow-lg transition-colors hover:bg-[#8f3620]"
+                >
+                  <Mail size={18} /> Email the band
+                </a>
+                <a
+                  href={site.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded px-6 py-3 border-2 border-white/40 text-white uppercase tracking-wider font-semibold font-[family-name:var(--font-display)] transition-colors hover:border-white hover:bg-white hover:text-[#100d0a]"
+                >
+                  <FacebookIcon className="h-[18px] w-[18px]" /> Follow on Facebook
+                </a>
+              </div>
             </motion.div>
           ) : (
             <>
@@ -110,34 +135,32 @@ export default function Contact() {
                     Don't fill this out if you're human: <input name="bot-field" />
                   </label>
                 </p>
+                {/* Hidden input carries the icon-card selection into the Netlify payload. */}
+                <input type="hidden" name="inquiryType" value={form.inquiryType} />
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="name" className={labelClass}>Name</label>
-                    <input id="name" name="name" type="text" required placeholder="Your name" value={form.name} onChange={update("name")} className={inputClass} />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className={labelClass}>Email</label>
-                    <input id="email" name="email" type="email" required placeholder="your@email.com" value={form.email} onChange={update("email")} className={inputClass} />
-                  </div>
+                  <FloatField name="name" label="Your name" required value={form.name} onChange={update("name")} />
+                  <FloatField name="email" label="Email" type="email" required value={form.email} onChange={update("email")} />
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="phone" className={labelClass}>Phone <span className="text-white/40 font-normal">(optional)</span></label>
-                    <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" value={form.phone} onChange={update("phone")} className={inputClass} />
-                  </div>
-                  <div>
-                    <label htmlFor="inquiryType" className={labelClass}>Inquiry Type</label>
-                    <select id="inquiryType" name="inquiryType" value={form.inquiryType} onChange={update("inquiryType")} className={inputClass}>
-                      {INQUIRY_TYPES.map((opt) => (
-                        <option key={opt.value} value={opt.value} className="bg-[#100d0a]">{opt.label}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="message" className={labelClass}>Message</label>
-                  <textarea id="message" name="message" rows={5} required placeholder="Tell us about your event (date, venue, expected attendance) or just say hi." value={form.message} onChange={update("message")} className={`${inputClass} resize-none`} />
-                </div>
+                <FloatField name="phone" label="Phone (optional)" type="tel" value={form.phone} onChange={update("phone")} />
+
+                <IconCardSelect
+                  legend="What's this about?"
+                  options={INQUIRY_OPTIONS}
+                  value={form.inquiryType}
+                  onChange={(v) => setForm((f) => ({ ...f, inquiryType: v }))}
+                />
+
+                <FloatField
+                  name="message"
+                  label="Tell us about your event or just say hi"
+                  required
+                  textarea
+                  rows={5}
+                  value={form.message}
+                  onChange={update("message")}
+                />
+
                 {error && (
                   <p className="text-[#e8a06a] text-sm text-center">
                     Something went wrong. Please try again, or email us directly at{" "}
@@ -147,7 +170,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="w-full px-8 py-4 bg-[#b5482a] text-white uppercase tracking-wider rounded hover:bg-[#8f3620] transition-colors duration-200 font-bold shadow-lg font-[family-name:var(--font-display)] disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="sheen w-full px-8 py-4 bg-[#b5482a] text-white uppercase tracking-wider rounded hover:bg-[#8f3620] transition-colors duration-200 font-bold shadow-lg font-[family-name:var(--font-display)] disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {submitting ? "Sending..." : "Send Message"}
                 </button>

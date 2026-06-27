@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
-import { motion } from "framer-motion";
 import { images } from "@/data/images";
 import { site, NAV_LINKS } from "@/data/site";
 import { FacebookIcon, InstagramIcon, YouTubeIcon, TikTokIcon } from "@/components/icons";
+import MobileMenu from "@/components/MobileMenu";
 
 const navLinkBase =
   "font-[family-name:var(--font-display)] text-xl uppercase tracking-wider font-semibold transition-colors duration-200";
@@ -84,47 +84,7 @@ export default function Header() {
         </button>
       </div>
 
-      {menuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="lg:hidden bg-[#100d0a]/98 backdrop-blur-md border-t border-white/10"
-        >
-          <div className="container py-6 flex flex-col gap-5">
-            <Link
-              href="/"
-              className={`${navLinkBase} text-2xl ${location === "/" ? "text-[#b5482a]" : "text-white/90"}`}
-              onClick={() => setMenuOpen(false)}
-            >
-              Home
-            </Link>
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`${navLinkBase} text-2xl ${location === link.href ? "text-[#b5482a]" : "text-white/90"}`}
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="flex items-center gap-5 pt-2">
-              {socials.map(({ url, label, Icon }) => (
-                <a
-                  key={label}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="text-white/80 hover:text-[#b5482a] transition-colors duration-200"
-                >
-                  <Icon className="w-6 h-6" />
-                </a>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-      )}
+      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} location={location} />
     </header>
   );
 }
