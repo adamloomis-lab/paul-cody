@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "wouter";
 import { X, ArrowRight, Mail, CalendarCheck } from "lucide-react";
 import { images } from "@/data/images";
@@ -47,7 +48,7 @@ export default function MobileMenu({ open, onClose, location }: MobileMenuProps)
 
   if (!open) return null;
 
-  return (
+  return createPortal(
     <div className="lg:hidden fixed inset-0 z-[60]">
       {/* Backdrop */}
       <button
@@ -163,6 +164,7 @@ export default function MobileMenu({ open, onClose, location }: MobileMenuProps)
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
