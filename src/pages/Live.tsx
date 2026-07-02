@@ -6,7 +6,9 @@ import PageHeader from "@/components/PageHeader";
 import { upcomingShows, type Show } from "@/data/shows";
 
 function ShowRow({ show, index }: { show: Show; index: number }) {
-  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(show.address)}`;
+  const directionsUrl = show.address
+    ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(show.address)}`
+    : null;
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -26,21 +28,25 @@ function ShowRow({ show, index }: { show: Show; index: number }) {
         <span className="block text-xl font-bold text-white uppercase tracking-wide font-[family-name:var(--font-display)]">
           {show.venue}
         </span>
-        <span className="block text-base text-white/60 uppercase tracking-wide font-[family-name:var(--font-display)]">
-          {show.city}
-        </span>
+        {show.city && (
+          <span className="block text-base text-white/60 uppercase tracking-wide font-[family-name:var(--font-display)]">
+            {show.city}
+          </span>
+        )}
       </div>
-      <a
-        href={directionsUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#b5482a] text-white text-sm uppercase tracking-wider rounded hover:bg-[#8f3620] transition-colors duration-200 font-bold shrink-0 font-[family-name:var(--font-display)]"
-      >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-        </svg>
-        Directions
-      </a>
+      {directionsUrl && (
+        <a
+          href={directionsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#b5482a] text-white text-sm uppercase tracking-wider rounded hover:bg-[#8f3620] transition-colors duration-200 font-bold shrink-0 font-[family-name:var(--font-display)]"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+          </svg>
+          Directions
+        </a>
+      )}
     </motion.div>
   );
 }

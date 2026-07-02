@@ -2,23 +2,30 @@ export type Show = {
   date: string;
   time?: string;
   venue: string;
-  city: string;
-  address: string;
+  city?: string;
+  /** Google Maps destination for the Directions button. Omit for private events. */
+  address?: string;
 };
 
-// Live dates as listed on the original site. Only venue/city/date/time exist —
-// no ticket links in the source, so don't invent them. The address powers a
-// Google Maps directions link.
+// Live dates as provided by Paul. Only what he gives us — no invented ticket
+// links. `address` powers a Google Maps directions link; a venue+city query is
+// fine (Maps resolves it), don't invent street addresses.
 //
-// NOTE FOR ADAM: the original site also listed two past 2026 dates (Slim &
-// Chubby's, Mar 26 and the Cuyahoga County Library showcase, Feb 26). Those are
-// in the past, so they're omitted here. Add new confirmed dates as they come in.
+// Keep this list current: drop dates once they've passed.
 export const upcomingShows: Show[] = [
   {
-    date: "Sat, June 27",
-    time: "6:00 - 9:00 PM",
-    venue: "Red Wagon Farm",
-    city: "Columbia Station, OH",
-    address: "14554 W River Rd, Columbia Station, OH 44028",
+    date: "Sat, August 1",
+    time: "8:00 – 11:00 PM",
+    venue: "Grindstone Tap House",
+    city: "Berea, OH",
+    address: "Grindstone Tap House, Berea, OH",
+  },
+  {
+    date: "Tue, August 4",
+    venue: "Private Event",
+  },
+  {
+    date: "Sat, August 15",
+    venue: "Private Event",
   },
 ];
