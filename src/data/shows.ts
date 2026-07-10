@@ -24,8 +24,4 @@ export const upcomingShows: Show[] = [
     date: "Tue, August 4",
     venue: "Private Event",
   },
-  {
-    date: "Sat, August 15",
-    venue: "Private Event",
-  },
 ];
