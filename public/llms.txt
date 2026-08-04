@@ -7,7 +7,7 @@ Old-school storytelling blended with '70s southern rock and modern country. Voic
 
 ## Pages
 - /band: Full bio of Paul Cody and The Erie Riders.
-- /live: Upcoming live show dates.
+- /live: Live show dates, both upcoming and previously played.
 - /music: The album "New Beginning". Stream/buy on Bandcamp, Amazon, iTunes/Apple Music, or order a signed CD ($13).
 - /video: Music videos and live performances (YouTube + featured clips).
 - /gallery: Live performance photos.

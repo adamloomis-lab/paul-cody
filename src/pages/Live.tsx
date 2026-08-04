@@ -3,33 +3,60 @@ import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import Seo from "@/components/Seo";
 import PageHeader from "@/components/PageHeader";
-import { upcomingShows, type Show } from "@/data/shows";
+import { splitShows, type Show } from "@/data/shows";
 
-function ShowRow({ show, index }: { show: Show; index: number }) {
-  const directionsUrl = show.address
-    ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(show.address)}`
-    : null;
+function ShowRow({ show, index, past = false }: { show: Show; index: number; past?: boolean }) {
+  // Directions only help for a show that hasn't happened yet.
+  const directionsUrl =
+    !past && show.address
+      ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(show.address)}`
+      : null;
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="group relative flex flex-col md:flex-row md:items-center gap-3 md:gap-6 py-5 px-5 md:px-7 rounded-lg bg-white/[0.03] border border-white/10 hover:border-[#b5482a]/40 transition-all duration-300 overflow-hidden"
+      viewport={{ once: true, amount: 0.05 }}
+      transition={{ duration: 0.4, delay: Math.min(index, 6) * 0.08 }}
+      className={`group relative flex flex-col md:flex-row md:items-center gap-3 md:gap-6 rounded-lg border transition-all duration-300 overflow-hidden ${
+        past
+          ? "py-4 px-5 md:px-6 bg-white/[0.015] border-white/[0.07] hover:border-white/20"
+          : "py-5 px-5 md:px-7 bg-white/[0.03] border-white/10 hover:border-[#b5482a]/40"
+      }`}
     >
-      <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#b5482a]/40 group-hover:bg-[#b5482a] transition-colors duration-300" />
+      <div
+        className={`absolute left-0 top-0 bottom-0 w-1 transition-colors duration-300 ${
+          past ? "bg-white/15" : "bg-[#b5482a]/40 group-hover:bg-[#b5482a]"
+        }`}
+      />
       <div className="md:w-44 shrink-0">
-        <span className="block text-xl font-bold text-[#b5482a] uppercase tracking-wide font-[family-name:var(--font-display)]">
+        <span
+          className={`block font-bold uppercase tracking-wide font-[family-name:var(--font-display)] ${
+            past ? "text-lg text-white/45" : "text-xl text-[#b5482a]"
+          }`}
+        >
           {show.date}
         </span>
-        {show.time && <span className="block text-sm text-white/55 uppercase tracking-wide">{show.time}</span>}
+        {show.time && (
+          <span className={`block text-sm uppercase tracking-wide ${past ? "text-white/30" : "text-white/55"}`}>
+            {show.time}
+          </span>
+        )}
       </div>
       <div className="flex-1">
-        <span className="block text-xl font-bold text-white uppercase tracking-wide font-[family-name:var(--font-display)]">
+        <span
+          className={`block font-bold uppercase tracking-wide font-[family-name:var(--font-display)] ${
+            past ? "text-lg text-white/70" : "text-xl text-white"
+          }`}
+        >
           {show.venue}
         </span>
         {show.city && (
-          <span className="block text-base text-white/60 uppercase tracking-wide font-[family-name:var(--font-display)]">
+          <span
+            className={`block uppercase tracking-wide font-[family-name:var(--font-display)] ${
+              past ? "text-sm text-white/40" : "text-base text-white/60"
+            }`}
+          >
             {show.city}
           </span>
         )}
@@ -51,28 +78,55 @@ function ShowRow({ show, index }: { show: Show; index: number }) {
   );
 }
 
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-4 mb-5">
+      <h2 className="text-2xl md:text-3xl font-bold uppercase text-white tracking-tight font-[family-name:var(--font-display)] shrink-0">
+        {children}
+      </h2>
+      <div className="flex-1 h-px bg-gradient-to-r from-white/20 to-transparent" />
+    </div>
+  );
+}
+
 export default function Live() {
+  const { upcoming, past } = splitShows();
+
   return (
     <Layout>
       <Seo
         title="Live Shows | Paul Cody and The Erie Riders"
-        description="Upcoming live shows from Paul Cody and The Erie Riders across Northeast Ohio, plus booking information for festivals, clubs, fairs, and private events."
+        description="Upcoming and past live shows from Paul Cody and The Erie Riders across Northeast Ohio, plus booking information for festivals, clubs, fairs, and private events."
         path="/live"
       />
       <PageHeader eyebrow="On Stage" title="Live Shows" subtitle="Catch Paul Cody and The Erie Riders live across Northeast Ohio." />
 
       <section className="pb-20 md:pb-28">
         <div className="container max-w-3xl">
-          {upcomingShows.length > 0 ? (
-            <div className="space-y-3">
-              {upcomingShows.map((show, i) => (
-                <ShowRow key={`${show.date}-${show.venue}`} show={show} index={i} />
-              ))}
-            </div>
+          {upcoming.length > 0 ? (
+            <>
+              <SectionHeading>Upcoming</SectionHeading>
+              <div className="space-y-3">
+                {upcoming.map((show, i) => (
+                  <ShowRow key={`${show.on}-${show.venue}`} show={show} index={i} />
+                ))}
+              </div>
+            </>
           ) : (
             <p className="text-center text-white/70 text-lg py-10">
               No dates on the calendar right now. Check back soon, or follow along on social for new show announcements.
             </p>
+          )}
+
+          {past.length > 0 && (
+            <div className={upcoming.length > 0 ? "mt-14" : ""}>
+              <SectionHeading>Previously Played</SectionHeading>
+              <div className="space-y-2.5">
+                {past.map((show, i) => (
+                  <ShowRow key={`${show.on}-${show.venue}`} show={show} index={i} past />
+                ))}
+              </div>
+            </div>
           )}
 
           <div className="text-center mt-14 p-8 rounded-xl bg-[#1c1813] border border-white/10">
