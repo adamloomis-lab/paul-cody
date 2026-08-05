@@ -13,10 +13,14 @@ function ShowRow({ show, index, past = false }: { show: Show; index: number; pas
       : null;
 
   return (
+    // Mount animation, NOT whileInView: the show list is the page's whole
+    // point, so it must never depend on an IntersectionObserver firing. A
+    // zero-height or throttled viewport would leave whileInView rows stuck at
+    // opacity 0 — an empty Live page. This list is short and near the top, so
+    // animating on mount looks the same with no way to fail closed.
     <motion.div
       initial={{ opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.05 }}
+      animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4, delay: Math.min(index, 6) * 0.08 }}
       className={`group relative flex flex-col md:flex-row md:items-center gap-3 md:gap-6 rounded-lg border transition-all duration-300 overflow-hidden ${
         past

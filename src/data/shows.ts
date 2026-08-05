@@ -64,6 +64,14 @@ export const shows: Show[] = [
     city: "Brookpark, OH",
     address: "Solid Gold Lounge, Brookpark, OH",
   },
+  {
+    on: "2026-10-16",
+    date: "Fri, October 16",
+    time: "8:00 – 11:00 PM",
+    venue: "Grindstone Tap House",
+    city: "Berea, OH",
+    address: "Grindstone Tap House, Berea, OH",
+  },
 ];
 
 /** Local YYYY-MM-DD for "today" (avoids UTC shifting the date in US zones). */
