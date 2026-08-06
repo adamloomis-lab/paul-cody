@@ -65,8 +65,8 @@ export const shows: Show[] = [
     address: "Solid Gold Lounge, Brookpark, OH",
   },
   {
-    on: "2026-10-16",
-    date: "Fri, October 16",
+    on: "2026-10-02",
+    date: "Fri, October 2",
     time: "8:00 – 11:00 PM",
     venue: "Grindstone Tap House",
     city: "Berea, OH",
