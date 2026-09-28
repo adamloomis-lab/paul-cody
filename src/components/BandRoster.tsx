@@ -1,4 +1,4 @@
-import { players, type Member } from "@/data/members";
+import { players, liveBand, type Member } from "@/data/members";
 
 function MemberCard({ m }: { m: Member }) {
   return (
@@ -11,9 +11,9 @@ function MemberCard({ m }: { m: Member }) {
           className="w-full aspect-[4/3] object-cover object-top rounded-lg mb-4 border border-white/10"
         />
       )}
-      <h3 className="text-xl font-bold text-white uppercase tracking-wide font-[family-name:var(--font-display)]">
+      <h4 className="text-xl font-bold text-white uppercase tracking-wide font-[family-name:var(--font-display)]">
         {m.name}
-      </h3>
+      </h4>
       <p className="text-[#e8a06a] text-sm uppercase tracking-[0.2em] mt-1 mb-3 font-[family-name:var(--font-display)]">
         {m.role}
       </p>
@@ -40,8 +40,26 @@ function MemberCard({ m }: { m: Member }) {
   );
 }
 
+function RosterGroup({ title, intro, members, className = "" }: { title: string; intro?: string; members: Member[]; className?: string }) {
+  return (
+    <div className={className}>
+      <div className="text-center mb-8">
+        <h3 className="text-3xl md:text-4xl font-bold uppercase text-white tracking-tight font-[family-name:var(--font-display)]">
+          {title}
+        </h3>
+        {intro && <p className="text-white/70 text-lg mt-3 max-w-3xl mx-auto">{intro}</p>}
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto">
+        {members.map((m) => (
+          <MemberCard key={m.name} m={m} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function BandRoster() {
-  // Plain section, NOT FadeInSection: the 12-card roster is taller than the
+  // Plain section, NOT FadeInSection: the roster is taller than the
   // viewport on mobile, so a whileInView fade on the whole section never
   // triggers and the band appeared invisible.
   return (
@@ -54,16 +72,16 @@ export default function BandRoster() {
           <h2 className="text-4xl md:text-5xl font-bold uppercase text-white tracking-tight font-[family-name:var(--font-display)]">
             The Erie Riders
           </h2>
-          <p className="text-white/70 text-lg mt-4 max-w-3xl mx-auto">
-            Some of the finest players in Northeast Ohio and beyond brought these story songs to life.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto">
-          {players.map((m) => (
-            <MemberCard key={m.name} m={m} />
-          ))}
-        </div>
+        <RosterGroup title="Live Band" members={liveBand} />
+
+        <RosterGroup
+          title="Studio Band"
+          intro="Some of the finest players in Northeast Ohio and beyond brought these story songs to life."
+          members={players}
+          className="mt-16 md:mt-20"
+        />
       </div>
     </section>
   );

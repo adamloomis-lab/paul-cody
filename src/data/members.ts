@@ -11,6 +11,7 @@ export type Member = {
   links?: MemberLink[];
 };
 
+// Studio Band: everyone who played on the New Beginning album.
 export const players: Member[] = [
   {
     name: "Tom Prebish",
@@ -108,3 +109,24 @@ export const players: Member[] = [
     bio: "Chris is the owner and Wizard of Magnetic North Studio in Beachwood, Ohio, celebrating his 40th year in business serving the Northeast Ohio media market. He wears many hats (audio engineer, music producer, mastering engineer, video producer) with over 900 album credits to date covering every genre of music, plus live albums, concerts, and TV/movie music filming. He has worked with internationally known artists and record labels as well as independent and self-financed artists, and his devotion to each artist is the same. He is also a father of two super cool sons and a self-proclaimed nerd. This album would not have been possible without his artistry as well as the players he brought that made this release so special.",
   },
 ];
+
+// Live Band: the lineup that plays shows, in the order Paul listed them
+// (2026-09-27). Tommy Amato and Dennis Veverka also play in the Studio Band,
+// so they reuse their studio entries rather than duplicating the copy.
+const kbBradley: Member = {
+  name: "KB Bradley",
+  photo: "/images/member-kb-bradley.webp",
+  role: "Lead Guitar & Vocals",
+  bio: "KB Bradley plays lead guitar and sings for the Erie Riders and performs in many other diverse musical projects. He is respected in performance circles and a CEC Cleveland Icon Award recipient as a multi-decade professional performing musician and music educator. Holding both music and biology degrees (marine focus and accredited Dive Master Rescue diver) has enabled him to travel all over the globe either playing guitar and singing or scuba diving or both! And, ladies, he knows how to dance as well being an Argentine Tango performer and instructor 😊",
+};
+
+const jimBrewer: Member = {
+  name: "Jim Brewer",
+  photo: "/images/member-jim-brewer.webp",
+  role: "Bass",
+  bio: "Jim Brewer is a multi-instrumentalist and the Erie Riders bass player. He has played in rock, blues, country, jazz, and community bands his whole life. He’s also a lifelong professional engineer in Cleveland!",
+};
+
+const studio = (name: string) => players.find((m) => m.name === name)!;
+
+export const liveBand: Member[] = [kbBradley, studio("Tommy Amato"), studio("Dennis Veverka"), jimBrewer];
