@@ -55,6 +55,11 @@ function ShowRow({ show, index, past = false }: { show: Show; index: number; pas
         >
           {show.venue}
         </span>
+        {show.note && (
+          <span className={`block text-sm font-semibold uppercase tracking-wide ${past ? "text-white/40" : "text-[#b5482a]"}`}>
+            {show.note}
+          </span>
+        )}
         {show.city && (
           <span
             className={`block uppercase tracking-wide font-[family-name:var(--font-display)] ${

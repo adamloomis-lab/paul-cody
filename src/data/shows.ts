@@ -5,24 +5,26 @@ export type Show = {
   date: string;
   time?: string;
   venue: string;
+  /** A billing line under the venue, in Paul's words, e.g. "ALL Original Opening Show!" */
+  note?: string;
   city?: string;
   /** Google Maps destination for the Directions button. Omit for private events. */
   address?: string;
 };
 
-// Live dates as provided by Paul. Only what he gives us — no invented ticket
+// Live dates as provided by Paul. Only what he gives us, no invented ticket
 // links. `address` powers a Google Maps directions link; a venue+city query is
 // fine (Maps resolves it), don't invent street addresses.
 //
 // NOTHING GETS DELETED. Paul wants every show to stay on the page as a track
 // record for venue owners. The Live page splits this list by `on` against
 // today's date, so a show moves from "Upcoming" to "Previously played" on its
-// own — no edit needed. Only remove a row if Paul asks.
+// own, no edit needed. Only remove a row if Paul asks.
 export const shows: Show[] = [
   {
     on: "2026-02-26",
     date: "Thu, February 26",
-    time: "6:00 – 7:00 PM",
+    time: "6:00 to 7:00 PM",
     venue: "Cuyahoga County Public Library Artist Spotlight",
     city: "Parma Snow Auditorium, Parma, OH",
     address: "Parma Snow Branch Library, Parma, OH",
@@ -30,7 +32,7 @@ export const shows: Show[] = [
   {
     on: "2026-03-26",
     date: "Thu, March 26",
-    time: "7:30 – 8:00 PM",
+    time: "7:30 to 8:00 PM",
     venue: "Slim & Chubby's",
     city: "Strongsville, OH",
     address: "Slim & Chubby's, Strongsville, OH",
@@ -38,7 +40,7 @@ export const shows: Show[] = [
   {
     on: "2026-06-27",
     date: "Sat, June 27",
-    time: "6:00 – 9:00 PM",
+    time: "6:00 to 9:00 PM",
     venue: "Red Wagon Farm and Brewing Company",
     city: "Columbia Station, OH",
     address: "Red Wagon Farm, Columbia Station, OH",
@@ -46,7 +48,7 @@ export const shows: Show[] = [
   {
     on: "2026-08-01",
     date: "Sat, August 1",
-    time: "8:00 – 11:00 PM",
+    time: "8:00 to 11:00 PM",
     venue: "Grindstone Tap House",
     city: "Berea, OH",
     address: "Grindstone Tap House, Berea, OH",
@@ -59,7 +61,7 @@ export const shows: Show[] = [
   {
     on: "2026-08-15",
     date: "Sat, August 15",
-    time: "8:00 PM – Midnight",
+    time: "8:00 PM to Midnight",
     venue: "Solid Gold Lounge",
     city: "Brookpark, OH",
     address: "Solid Gold Lounge, Brookpark, OH",
@@ -67,10 +69,19 @@ export const shows: Show[] = [
   {
     on: "2026-10-02",
     date: "Fri, October 2",
-    time: "8:00 – 11:00 PM",
+    time: "8:00 to 11:00 PM",
     venue: "Grindstone Tap House",
     city: "Berea, OH",
     address: "Grindstone Tap House, Berea, OH",
+  },
+  {
+    on: "2026-11-14",
+    date: "Sat, November 14",
+    time: "8:00 to 9:00 PM",
+    venue: "Urban Honkeytonk Saloon",
+    note: "ALL Original Opening Show!",
+    city: "Akron, OH",
+    address: "Urban Honkeytonk Saloon, Akron, OH",
   },
 ];
 
